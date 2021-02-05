@@ -1,0 +1,63 @@
+-------------------------------- Kubernetes Setup On AWS----------------------------------------------------------------
+
+Note. Use Ubuntu:18.04  with instance type as t2.medium
+
+--------------------------------------------------------------------------------------------------------------
+
+Run this compulsory to change the worspace to root
+
+sudo su - root  
+
+--------------------------------------------------------------------------------------------------------------
+
+1) Ianstlling Kubectl:
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+--------------------------------------------------------------------------------------------------------------
+
+2) Setting Path
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+--------------------------------------------------------------------------------------------------------------
+
+3) Installing docker.io
+
+sudo apt-get update && \
+    sudo apt-get install docker.io -y
+
+--------------------------------------------------------------------------------------------------------------
+4) Installing Minikube
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+--------------------------------------------------------------------------------------------------------------
+5) Checking  minikube version
+
+minikube version
+
+--------------------------------------------------------------------------------------------------------------
+6) Installing conntrack
+
+sudo apt install conntrack
+
+--------------------------------------------------------------------------------------------------------------
+7) Run this 
+
+sudo -i
+
+--------------------------------------------------------------------------------------------------------------
+8) Staring Minikube
+
+minikube start --vm-driver=none
+
+--------------------------------------------------------------------------------------------------------------
+9) Checking Minikube status
+
+minikube status
+
+--------------------------------------------------------------------------------------------------------------
+10) Checking kubectl command
+
+kubectl get pods
+--------------------------------------------------------------------------------------------------------------
